@@ -52,7 +52,7 @@ def paraphrase(text):
 async def home():
     return {"message": "Hello World"}
 
-@app.post("/summary")
+@app.post("/paraphrase")
 async def getsummary(user_request_in: SummaryRequest):
     payload = {"text":user_request_in.text}
     summ = paraphrase(payload)
