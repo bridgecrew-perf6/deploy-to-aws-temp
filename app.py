@@ -32,7 +32,8 @@ def get_response(input_text,num_return_sequences):
   tgt_text = tokenizer.batch_decode(translated, skip_special_tokens=True)
   return tgt_text
 
-def paraphrase(text):  
+def paraphrase(text):
+  text = text["text"]
   text = re.sub("[_@*&?]","", text).lstrip().rstrip()
   text = re.sub("[\(\[]","", text).lstrip().rstrip()
   text = re.sub("[\)\]]","", text).lstrip().rstrip()
@@ -56,7 +57,6 @@ async def home():
 async def getsummary(user_request_in: SummaryRequest):
     payload = {"text":user_request_in.text}
     summ = paraphrase(payload)
-    summ["Device"]= torch_device
     return summ
 
 
