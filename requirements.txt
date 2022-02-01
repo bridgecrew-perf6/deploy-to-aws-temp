@@ -2,7 +2,7 @@ pydantic
 uvicorn
 gunicorn
 fastapi
-torch==1.9.0
+torch
 sentencepiece
-transformer
+transformers
 sentence-splitter
